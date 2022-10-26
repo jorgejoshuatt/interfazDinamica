@@ -1,19 +1,29 @@
-icremento = 0;
+/*Función para crear un campo de texto*/
+incremento = 0;
 function crear(obj) {
-    icremento++;
-
-    field = document.getElementById('field');
+    incremento++;
+    /*Crear contenedor*/
+    field = document.getElementById('campos');
     contenedor = document.createElement('div');
-    contenedor.id = 'div' + icremento;
+    contenedor.id = 'div' + incremento;
+    field.style.backgroundColor='deepskyblue';
     field.appendChild(contenedor);
 
-    boton = document.createElement('input');
-    boton.type = 'text';
-    boton.name = 'text' + '[ ]';
-    contenedor.appendChild(boton);
+    /*Crear campos*/
+    tipo = document.getElementById('select').value;
+    /*Crear label para su campo correspondiente*/
+    label = document.createElement('p');
+    label.textContent = "Introduce el dato requerido: ";
+    contenedor.appendChild(label);
+    /*Crear campo de texto por tipo*/
+    campo = document.createElement('input');
+    campo.type = tipo;
+    campo.name = tipo + '[ ]';
+    contenedor.appendChild(campo);
 }
+
+/*Función para borrar un campo de texto*/
 function borrar(obj) {
-    div = document.getElementById('div'+incremento);
-    console.log(div)
-    /*div.removeChild(document.getElementById(obj));*/
+    field = document.getElementById('field');
+    field.removeChild(document.getElementById(obj));
 }
